@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f8ff;
+  color: #222;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+header, footer {
+  background: linear-gradient(to right, #00bcd4, #4dd0e1);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+/* Bouton réservation (pas de JS direct mais interaction utilisateur) */
+.bouton-reservation {
+  padding: 1rem 2rem;
+  background-color: #00bcd4;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.bouton-reservation:hover {
+  transform: scale(1.05);
+}
+
+
+/******************************/
+/* ✍️ Effet machine à écrire **/
+/******************************/
+.effet-machine {
+  font-size: 2rem;
+  border-right: 2px solid;
+  width: fit-content; /*la largeur du bloc s’adapte pile à la taille du texte (pas plus large).*/
+  margin: 0 auto;
+  white-space: nowrap; /* empêche le texte d’aller à la ligne (tout reste sur une seule ligne). */
+  overflow: hidden;  /*cache le texte qui dépasse du bloc → indispensable pour l’effet “lettres qui apparaissent une à une” avec le JS.*/
+  animation: clignoter 0.75s step-end infinite;
+}
+
+/*à la moitié du cycle (50%), la bordure devient transparente → 
+donc elle clignote (visible / invisible / visible / invisible)*/
+@keyframes clignoter {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/*************/
+/* Dark mode */
+/*************/
+/* 🌓 Bouton bascule de mode */
+.bouton-mode {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+body.mode-sombre {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* 🌓 Adaptation du bouton en mode sombre */
+body.mode-sombre .bouton-mode {
+  background-color: #333;
+  color: white;
+}
+
+
+/*********************************/
+/* Apparition avec fade / slide */
+/********************************/
+.contenu-section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.contenu-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*****************************/
+/* Zoom au survol de l’image */
+/*****************************/
+.image-cadre {
+  border: 5px solid #4dd0e1;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: border-color 1s;
+}
+
+.image-cadre:hover {
+  border-color: #00acc1;
+}
+
+/* 🔍 Zoom au survol de l’image (JS applique un transform: scale) */
+#image-plage {
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+/****************************************************/
+/* Animation pomme en rotation (style animé via JS) */
+/****************************************************/
+.pomme-image {
+  width: 100px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 100;
+  transition: transform 0.1s;
+}
+
+
+

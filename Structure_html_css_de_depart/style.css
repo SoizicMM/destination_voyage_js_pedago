@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f8ff;
+  color: #222;
+  transition: background-color 0.5s, color 0.5s;
+  text-align: center;
+}
+
+header, footer {
+  background: linear-gradient(to right, #00bcd4, #4dd0e1);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+/* Bouton réservation (pas de JS direct mais interaction utilisateur) */
+.bouton-reservation {
+  padding: 1rem 2rem;
+  background-color: #00bcd4;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.bouton-reservation:hover {
+  transform: scale(1.05);
+}
